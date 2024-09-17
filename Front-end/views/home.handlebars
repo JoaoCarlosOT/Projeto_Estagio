@@ -1,0 +1,37 @@
+{{> head}}
+{{> header}}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Clientes</th>
+      <th scope="col">Empresa</th>
+      <th scope="col">Email</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">CPF/CNPJ</th>
+      <th scope="col" colspan="3">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each clientes}}
+    <tr>
+      <td>{{this.cliente}}</td>
+      <td>{{this.empresa}}</td>
+      <td>{{this.email}}</td>
+      <td>{{this.telefone}}</td>
+      <td>{{this.cpf_cnpj}}</td>
+      <td><a href="/update/{{this.id}}" class="btn btn-primary">Atualizar</a></td>
+      <td><a href="/details/{{this.id}}" class="btn btn-primary">Detalhes</a></td>
+      <td>
+        <form action="/delete/{{this.id}}" method="delete" onsubmit="return confirm('Tem certeza que deseja excluir este cliente?');">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit" class="btn btn-danger">Excluir</button>
+        </form>
+
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+{{> foot}}

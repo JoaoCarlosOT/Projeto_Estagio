@@ -1,0 +1,31 @@
+{{> head}}
+{{> header}}
+
+<form action="/edit/{{cliente.id}}" method="POST"> <!-- Use method="POST" -->
+    <input type="hidden" name="_method" value="PUT"> <!-- Override para PUT -->
+    <div class="mb-3">
+        <label for="cliente" class="form-label">Cliente</label>
+        <input type="text" class="form-control" id="cliente" name="cliente" value="{{cliente.cliente}}">
+    </div>
+    <div class="mb-3">
+        <label for="empresa" class="form-label">Empresa</label>
+        <input type="text" class="form-control" id="empresa" name="empresa" value="{{cliente.empresa}}">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" value="{{cliente.email}}">
+    </div>
+    <div class="mb-3">
+        <label for="telefone" class="form-label">Telefone</label>
+        <input type="tel" class="form-control" id="telefone" name="telefone" value="{{cliente.telefone}}">
+    </div>
+    <div class="mb-3">
+        <label for="cpf_cnpj" class="form-label">CPF/CNPJ</label>
+        <input type="text" class="form-control" id="cpf_cnpj" name="cpf_cnpj" value="{{cliente.cpf_cnpj}}">
+    </div>
+    <button type="submit" class="btn btn-primary">Atualizar</button>
+</form>
+
+{{> foot}}
+
+
